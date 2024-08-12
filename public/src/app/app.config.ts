@@ -4,7 +4,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { feedbackInterceptor } from './core/interceptor/feedback.interceptor';
+import { feedbackInterceptor } from './core/feedback.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [

@@ -1,0 +1,76 @@
+<div class="LoginContainer">
+  <h1 class="mat-display-small">Welcome to my Angular studies</h1>
+  <br />
+  <mat-card class="LoginContainer__card" [appearance]="'outlined'">
+    <mat-card-content>
+      <mat-tab-group [(selectedIndex)]="tabIndex">
+        <mat-tab label="Login">
+          <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <div class="LoginContainer__form">
+              <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="EmailId" type="EmailId" />
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="Password" type="Password" />
+              </mat-form-field>
+
+              <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid || isLoading">
+                @if(!isLoading){ Login } @else {
+                <mat-spinner diameter="24" />
+                }
+              </button>
+            </div>
+          </form>
+        </mat-tab>
+        <mat-tab label="Signup">
+          <form [formGroup]="registerFrom" (ngSubmit)="onRegister()">
+            <div class="LoginContainer__form">
+              <mat-form-field appearance="fill">
+                <mat-label>First name</mat-label>
+                <input matInput formControlName="firstName" type="text" />
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Middle name</mat-label>
+                <input matInput formControlName="middleName" type="text" />
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Last name</mat-label>
+                <input matInput formControlName="lastName" type="text" />
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Cellphone</mat-label>
+                <input
+                  matInput
+                  formControlName="mobileNo"
+                  type="tel"
+                  [value]="this.registerFrom.get('mobileNo')?.value" />
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="emailId" type="email" />
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password" />
+              </mat-form-field>
+
+              <button mat-raised-button color="primary" type="submit" [disabled]="!registerFrom.valid || isLoading">
+                @if(!isLoading){ Register } @else {
+                <mat-spinner diameter="24" />
+                }
+              </button>
+            </div>
+          </form></mat-tab
+        >
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>
