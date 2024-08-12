@@ -68,7 +68,7 @@ export class LoginComponent {
   onRegister(): void {
     if (this.registerFrom.valid) {
       this.isLoading = true;
-      this.userService.register(this.loginForm.value).subscribe((res: any) => {
+      this.userService.register(this.registerFrom.value).subscribe((res: any) => {
         this.isLoading = false;
         if (res.result) {
           this.tabIndex = 0;
